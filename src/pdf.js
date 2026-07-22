@@ -1,14 +1,24 @@
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
 
 let browserPromise;
 
-// --no-sandbox only when the container runs as root; keep the sandbox otherwise
-const args = process.env.PUPPETEER_NO_SANDBOX
-  ? ["--no-sandbox", "--disable-setuid-sandbox"]
-  : [];
+// Serverless hosts ship no Chrome and have a read-only filesystem, so puppeteer's
+// downloaded copy is never in the bundle — use the lambda-packaged Chromium there.
+// Locally, borrow the Chrome that's already installed instead of downloading a second one.
+async function launch() {
+  if (!process.env.VERCEL && !process.env.AWS_LAMBDA_FUNCTION_NAME)
+    return puppeteer.launch({ channel: "chrome" });
+
+  const { default: chromium } = await import("@sparticuz/chromium");
+  return puppeteer.launch({
+    args: chromium.args, // already includes --no-sandbox
+    executablePath: await chromium.executablePath(),
+    headless: true,
+  });
+}
 
 async function browser() {
-  browserPromise ??= puppeteer.launch({ args }).catch((err) => {
+  browserPromise ??= launch().catch((err) => {
     browserPromise = undefined; // don't cache a failed launch forever
     throw err;
   });

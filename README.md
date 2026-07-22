@@ -111,13 +111,15 @@ The API also sniffs content and rejects a mismatch with the filename extension
 - Fonts: render awaits `document.fonts.ready` + `networkidle0`.
 - **Rebuild CSS after editing templates** — the compiler only keeps classes it sees.
 - Multi-page breaks: use `break-inside-avoid` / `@page` rules in the template.
-- Chromium in CI/sandbox: `PUPPETEER_SKIP_DOWNLOAD=1` lets install finish, but
-  the render stage then needs a real Chromium at runtime.
+- No Chromium is downloaded at install. Locally the render uses your installed
+  Google Chrome (`channel: "chrome"`); on Vercel/Lambda it uses the bundled
+  `@sparticuz/chromium`. See `src/pdf.js`.
 
 ## Deployment
 
-- **Container:** bundle Chromium in the image.
-- **Serverless:** swap `puppeteer` for `puppeteer-core` + `@sparticuz/chromium`
+- **Container:** install Chrome in the image, or set `AWS_LAMBDA_FUNCTION_NAME`
+  to force the bundled Chromium path.
+- **Serverless:** works as-is — `puppeteer-core` + `@sparticuz/chromium`
   — the bundled Chromium exceeds deploy size limits.
 
 ## Check
