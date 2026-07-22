@@ -2,11 +2,23 @@ import puppeteer from "puppeteer";
 
 let browserPromise;
 
-const browser = () =>
-  (browserPromise ??= puppeteer.launch({
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  }));
+// --no-sandbox only when the container runs as root; keep the sandbox otherwise
+const args = process.env.PUPPETEER_NO_SANDBOX
+  ? ["--no-sandbox", "--disable-setuid-sandbox"]
+  : [];
 
+async function browser() {
+  browserPromise ??= puppeteer.launch({ args }).catch((err) => {
+    browserPromise = undefined; // don't cache a failed launch forever
+    throw err;
+  });
+  const b = await browserPromise;
+  if (b.connected) return b;
+  browserPromise = undefined; // crashed — relaunch
+  return browser();
+}
+
+// ponytail: unbounded pages, add a small queue if concurrency ever spikes
 export async function htmlToPdf(html, options = {}) {
   const page = await (await browser()).newPage();
   try {

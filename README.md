@@ -18,7 +18,9 @@ src/template.js         load template, interpolate, inline compiled CSS
 src/pdf.js              Puppeteer render (shared browser, printBackground:true)
 src/officeless.js       base64 upload → storage URL
 src/input.css           @tailwind directives
-templates/invoice.html  example template
+templates/invoice.html  simple example
+templates/sustainability.html  multi-page report — tables, nested loops, page break
+examples/sustainability.json   ready-made payload for the report
 public/tailwind.css     build output (gitignored)
 test.js                 self-check
 ```
@@ -46,22 +48,62 @@ curl -X POST http://localhost:3000/generate \
                "item":{"description":"Consulting","amount":"$1,250.00"}}}'
 ```
 
-Body: `{ template, data, filename?, upload? }`. `upload: false` returns
-`{ filename, base64 }` so you can verify the PDF without a live endpoint;
-otherwise `{ filename, url }`. Missing `template` → 400. Request body limit 4mb.
+Body: `{ template, data, filename?, upload? }`. Missing `template` → 400.
+Request body limit 4mb.
+
+Every response uses the same envelope:
+
+```json
+{ "error": false, "message": "PDF generated and uploaded",
+  "data": { "filename": "invoice-1042.pdf", "url": "https://…" } }
+```
+
+`upload: false` puts `{ filename, base64 }` in `data` instead, so you can verify
+the PDF without a live endpoint. Failures return
+`{ "error": true, "message": "<reason>", "data": {} }` with a 4xx/5xx status.
+
+## Template syntax
+
+`{{ key }}` and `{{ nested.key }}` — missing keys render empty. Values are
+stripped of HTML tags and escaped, so data can never inject markup.
+
+`{{#each rows}} … {{/each}}` repeats a block per array item. Inside it, keys
+resolve against the item first and fall back to the outer data, so a shared
+`{{ unit }}` still works inside a loop. Blocks nest:
+
+```html
+{{#each pillars}}
+  <h3>{{ name }}</h3>
+  {{#each topics}}<tr><td>{{ topic }}</td><td>{{ result }}</td></tr>{{/each}}
+{{/each}}
+```
+
+`templates/sustainability.html` is the worked example: KPI grid, a totalled
+emissions table, progress bars driven by data (`style="width: {{ progress }}%"`),
+nested pillar/topic tables, and a forced page break (`break-before-page`).
+
+```bash
+curl -s -X POST localhost:3000/generate \
+  -H 'Content-Type: application/json' \
+  -d @examples/sustainability.json
+```
+
+No conditionals and no loop index — add them when a template actually needs one.
 
 ## officeless config
 
 | var | default | required | meaning |
 |-----|---------|----------|---------|
 | `OFFICELESS_UPLOAD_URL` | — | yes | endpoint |
-| `OFFICELESS_TOKEN` | — | yes | bearer token |
-| `OFFICELESS_FILE_FIELD` | `content` | no | JSON field for base64 |
-| `OFFICELESS_NAME_FIELD` | `filename` | no | JSON field for name |
-| `OFFICELESS_URL_PATH` | `url` | no | dot-path to URL in response |
+| `OFFICELESS_TOKEN` | — | yes | JWT, sent **raw** in `Authorization` |
+| `OFFICELESS_URL_PATH` | `data.url` | no | dot-path to URL in response |
 
-Response shape is unconfirmed — if the URL nests (e.g. `data.url`), set
-`OFFICELESS_URL_PATH` instead of editing code.
+Body fields are fixed: `{ "content": "<base64>", "filename": "<name>" }`.
+
+Two confirmed quirks: the `Authorization` header takes the raw token — a
+`Bearer ` prefix returns 401 — and the storage URL lives at `data.url`.
+The API also sniffs content and rejects a mismatch with the filename extension
+(`FILE.003`), so `.pdf` must carry real PDF bytes.
 
 ## Gotchas
 

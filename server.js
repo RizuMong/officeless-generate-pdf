@@ -10,23 +10,28 @@ try {
 }
 
 const app = express();
-app.use(express.json({ limit: "2mb" }));
+app.use(express.json({ limit: "4mb" }));
 
-app.get("/health", (_req, res) => res.json({ ok: true }));
+const ok = (res, message, data) => res.json({ error: false, message, data });
+const fail = (res, status, message) =>
+  res.status(status).json({ error: true, message, data: {} });
+
+app.get("/health", (_req, res) => ok(res, "service is healthy", { ok: true }));
 
 app.post("/generate", async (req, res) => {
   const { template, data = {}, filename, upload = true } = req.body || {};
-  if (!template) return res.status(400).json({ error: "template is required" });
+  if (!template) return fail(res, 400, "template is required");
 
   const name = filename || `${template}-${Date.now()}.pdf`;
   try {
     const pdf = await htmlToPdf(await renderTemplate(template, data));
     const base64 = Buffer.from(pdf).toString("base64");
-    if (upload === false) return res.json({ filename: name, base64 });
-    res.json({ filename: name, url: await uploadToOfficeless(base64, name) });
+    if (upload === false) return ok(res, "PDF generated", { filename: name, base64 });
+    const url = await uploadToOfficeless(base64, name);
+    ok(res, "PDF generated and uploaded", { filename: name, url });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: err.message });
+    fail(res, 500, err.message);
   }
 });
 
@@ -35,7 +40,7 @@ const server = app.listen(port, () => console.log(`listening on :${port}`));
 
 for (const sig of ["SIGINT", "SIGTERM"]) {
   process.on(sig, async () => {
-    server.close();
+    await new Promise((r) => server.close(r)); // let in-flight renders finish
     await closeBrowser();
     process.exit(0);
   });

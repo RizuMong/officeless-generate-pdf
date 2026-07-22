@@ -6,6 +6,23 @@ import { uploadToOfficeless } from "./src/officeless.js";
 
 // --- template ---
 assert.equal(interpolate("{{ a.b }}|{{ missing }}", { a: { b: "x" } }), "x|");
+assert.equal(interpolate("{{ x }}", { x: "Acme & Co <script>alert(1)</script>" }), "Acme &amp; Co");
+assert.equal(interpolate("{{ x }}", { x: "5 < 6 & 7 > 2" }), "5 &lt; 6 &amp; 7 &gt; 2");
+
+// {{#each}} — list, nesting, outer-scope fallback, non-array, no leftovers
+assert.equal(
+  interpolate("{{#each rows}}[{{ n }}]{{/each}}", { rows: [{ n: 1 }, { n: 2 }] }),
+  "[1][2]",
+);
+assert.equal(
+  interpolate("{{#each g}}{{ name }}:{{#each t}}{{ v }}/{{ unit }},{{/each}};{{/each}}", {
+    unit: "kg", // outer fallback inside a nested loop
+    g: [{ name: "a", t: [{ v: 1 }, { v: 2 }] }, { name: "b", t: [{ v: 3 }] }],
+  }),
+  "a:1/kg,2/kg,;b:3/kg,;",
+);
+assert.equal(interpolate("x{{#each nope}}{{ v }}{{/each}}y", {}), "xy");
+assert.throws(() => interpolate("{{#each a}}", { a: [] }), /unclosed/);
 
 const html = await renderTemplate("invoice", {
   invoice: { number: "1042", date: "2026-07-22", total: "$1,250.00" },
@@ -37,7 +54,7 @@ process.env.OFFICELESS_URL_PATH = "data.url";
 assert.equal(await uploadToOfficeless("QkFTRTY0", "x.pdf"), "https://oos.example/file.pdf");
 assert.equal(received.body.content, "QkFTRTY0");
 assert.equal(received.body.filename, "x.pdf");
-assert.equal(received.auth, "Bearer tok123");
+assert.equal(received.auth, "tok123");
 
 process.env.OFFICELESS_URL_PATH = "nope";
 await assert.rejects(uploadToOfficeless("x", "y.pdf"), /no URL at path "nope"/);
@@ -48,6 +65,8 @@ try {
   const { htmlToPdf, closeBrowser } = await import("./src/pdf.js");
   const pdf = await htmlToPdf(html);
   assert.equal(Buffer.from(pdf).subarray(0, 4).toString(), "%PDF");
+  await closeBrowser();
+  await htmlToPdf(html); // relaunches after the browser is gone
   await closeBrowser();
   console.log("pdf: ok");
 } catch (err) {

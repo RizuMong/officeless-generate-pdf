@@ -6,7 +6,8 @@
   "scripts": {
     "build:css": "tailwindcss -i ./src/input.css -o ./public/tailwind.css --minify",
     "dev": "npm run build:css && node --watch server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node test.js"
   },
   "engines": {
     "node": ">=18"

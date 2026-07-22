@@ -5,13 +5,13 @@ export async function uploadToOfficeless(base64, filename) {
   const token = process.env.OFFICELESS_TOKEN;
   const fileField = "content";
   const nameField = "filename";
-  const urlPath = process.env.OFFICELESS_URL_PATH || "url";
+  const urlPath = process.env.OFFICELESS_URL_PATH || "data.url";
 
   const res = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      ...(token && { Authorization: `Bearer ${token}` }),
+      ...(token && { Authorization: token }), // raw token — "Bearer " prefix gets 401
     },
     body: JSON.stringify({ [fileField]: base64, [nameField]: filename }),
   });

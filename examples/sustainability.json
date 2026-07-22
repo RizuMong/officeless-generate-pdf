@@ -1,0 +1,84 @@
+{
+  "template": "sustainability",
+  "upload": false,
+  "filename": "sustainability-2025.pdf",
+  "data": {
+    "company": { "name": "PT Hijau Lestari" },
+    "report": {
+      "type": "Sustainability Report",
+      "title": "Environmental & Social Performance",
+      "period": "FY2025",
+      "preparedBy": "ESG Office",
+      "issuedAt": "2026-07-22",
+      "standard": "GRI 2021 · Core"
+    },
+    "kpis": [
+      { "label": "Total emissions", "value": "18,420", "unit": "tCO2e", "change": "-12.4%", "baseline": "FY2024" },
+      { "label": "Renewable energy", "value": "41%", "unit": "of total load", "change": "+9 pts", "baseline": "FY2024" },
+      { "label": "Water recycled", "value": "63%", "unit": "of withdrawal", "change": "+4 pts", "baseline": "FY2024" },
+      { "label": "Waste diverted", "value": "88%", "unit": "from landfill", "change": "+2 pts", "baseline": "FY2024" }
+    ],
+    "emissions": {
+      "note": "Calculated per GHG Protocol, market-based method for Scope 2.",
+      "currentYear": "FY2025",
+      "baseYear": "FY2024",
+      "unit": "tCO2e",
+      "totalCurrent": "18,420",
+      "totalBase": "21,030",
+      "totalChange": "-12.4%",
+      "rows": [
+        { "scope": "Scope 1", "category": "Stationary combustion", "current": "4,120", "base": "4,890", "change": "-15.7%" },
+        { "scope": "Scope 1", "category": "Mobile combustion", "current": "1,260", "base": "1,340", "change": "-6.0%" },
+        { "scope": "Scope 1", "category": "Fugitive emissions", "current": "310", "base": "365", "change": "-15.1%" },
+        { "scope": "Scope 2", "category": "Purchased electricity", "current": "5,880", "base": "7,210", "change": "-18.4%" },
+        { "scope": "Scope 2", "category": "Purchased steam", "current": "640", "base": "690", "change": "-7.2%" },
+        { "scope": "Scope 3", "category": "Purchased goods & services", "current": "3,940", "base": "4,150", "change": "-5.1%" },
+        { "scope": "Scope 3", "category": "Business travel", "current": "820", "base": "760", "change": "+7.9%" },
+        { "scope": "Scope 3", "category": "Employee commuting", "current": "1,450", "base": "1,625", "change": "-10.8%" }
+      ]
+    },
+    "targets": [
+      { "name": "Cut Scope 1+2 emissions 50% vs FY2020", "status": "On track", "dueYear": "2030", "progress": "38", "detail": "5,700 tCO2e reduced to date" },
+      { "name": "100% renewable electricity", "status": "On track", "dueYear": "2032", "progress": "41", "detail": "PPA signed for 20 MW solar" },
+      { "name": "Zero waste to landfill", "status": "At risk", "dueYear": "2028", "progress": "72", "detail": "Organic stream still uncontracted" },
+      { "name": "40% women in leadership", "status": "Behind", "dueYear": "2030", "progress": "27", "detail": "Pipeline program launched Q2" }
+    ],
+    "pillars": [
+      {
+        "name": "Environment",
+        "topics": [
+          { "topic": "Energy", "indicator": "GRI 302-1 · Total consumption (GJ)", "result": "412,800" },
+          { "topic": "Water", "indicator": "GRI 303-3 · Withdrawal (ML)", "result": "1,240" },
+          { "topic": "Waste", "indicator": "GRI 306-3 · Generated (t)", "result": "9,860" },
+          { "topic": "Biodiversity", "indicator": "GRI 304-3 · Habitat restored (ha)", "result": "128" }
+        ]
+      },
+      {
+        "name": "Social",
+        "topics": [
+          { "topic": "Safety", "indicator": "GRI 403-9 · LTIFR", "result": "0.41" },
+          { "topic": "Training", "indicator": "GRI 404-1 · Hours per employee", "result": "34.2" },
+          { "topic": "Diversity", "indicator": "GRI 405-1 · Women in workforce", "result": "36%" },
+          { "topic": "Community", "indicator": "GRI 413-1 · Programs (count)", "result": "23" }
+        ]
+      },
+      {
+        "name": "Governance",
+        "topics": [
+          { "topic": "Ethics", "indicator": "GRI 205-2 · Staff trained", "result": "98%" },
+          { "topic": "Supply chain", "indicator": "GRI 308-1 · Suppliers screened", "result": "74%" },
+          { "topic": "Data privacy", "indicator": "GRI 418-1 · Substantiated complaints", "result": "0" }
+        ]
+      }
+    ],
+    "assurance": {
+      "statement": "Limited assurance was obtained over the Scope 1 and Scope 2 emissions figures presented in section 1. Scope 3 categories remain unassured and are reported on a best-effort basis using spend-based emission factors.",
+      "notes": [
+        { "label": "Boundary", "text": "Covers 14 operating sites; the Cikarang plant was consolidated from Q3 FY2025." },
+        { "label": "Restatement", "text": "FY2024 Scope 2 restated after a metering correction at Site 07." },
+        { "label": "Factors", "text": "DEFRA 2025 and national grid factors published by the ministry in March 2026." },
+        { "label": "Exclusions", "text": "Category 15 (investments) excluded — below the 1% materiality threshold." }
+      ]
+    }
+  }
+}

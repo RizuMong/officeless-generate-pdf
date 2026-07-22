@@ -1,0 +1,125 @@
+<div class="bg-white p-10 font-sans text-slate-800">
+
+  <header class="flex items-end justify-between border-b-4 border-emerald-600 pb-6">
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-emerald-600">{{ report.type }}</p>
+      <h1 class="mt-1 text-3xl font-bold">{{ report.title }}</h1>
+      <p class="mt-1 text-sm text-slate-500">{{ company.name }} · Period {{ report.period }}</p>
+    </div>
+    <div class="text-right text-xs text-slate-500">
+      <p>Prepared by {{ report.preparedBy }}</p>
+      <p>Issued {{ report.issuedAt }}</p>
+      <p>Standard: {{ report.standard }}</p>
+    </div>
+  </header>
+
+  <!-- KPI cards -->
+  <section class="mt-8 grid grid-cols-4 gap-4">
+    {{#each kpis}}
+    <div class="break-inside-avoid rounded-lg border border-slate-200 bg-slate-50 p-4">
+      <p class="text-xs font-medium uppercase tracking-wide text-slate-400">{{ label }}</p>
+      <p class="mt-2 text-2xl font-bold text-slate-900">{{ value }}</p>
+      <p class="mt-1 text-xs text-slate-500">{{ unit }} · <span class="font-semibold">{{ change }}</span> vs {{ baseline }}</p>
+    </div>
+    {{/each}}
+  </section>
+
+  <!-- Emissions by scope -->
+  <section class="mt-10 break-inside-avoid">
+    <h2 class="text-lg font-bold text-slate-900">1. GHG Emissions by Scope</h2>
+    <p class="mt-1 text-sm text-slate-500">{{ emissions.note }}</p>
+    <table class="mt-4 w-full text-left text-sm">
+      <thead>
+        <tr class="bg-emerald-600 text-white">
+          <th class="px-4 py-2 font-semibold">Scope</th>
+          <th class="px-4 py-2 font-semibold">Category</th>
+          <th class="px-4 py-2 text-right font-semibold">{{ emissions.currentYear }}</th>
+          <th class="px-4 py-2 text-right font-semibold">{{ emissions.baseYear }}</th>
+          <th class="px-4 py-2 text-right font-semibold">Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each emissions.rows}}
+        <tr class="break-inside-avoid border-b border-slate-200 even:bg-slate-50">
+          <td class="px-4 py-2 font-medium">{{ scope }}</td>
+          <td class="px-4 py-2">{{ category }}</td>
+          <td class="px-4 py-2 text-right tabular-nums">{{ current }}</td>
+          <td class="px-4 py-2 text-right tabular-nums text-slate-500">{{ base }}</td>
+          <td class="px-4 py-2 text-right tabular-nums font-medium">{{ change }}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+      <tfoot>
+        <tr class="border-t-2 border-slate-800 font-bold">
+          <td class="px-4 py-2" colspan="2">Total ({{ emissions.unit }})</td>
+          <td class="px-4 py-2 text-right tabular-nums">{{ emissions.totalCurrent }}</td>
+          <td class="px-4 py-2 text-right tabular-nums">{{ emissions.totalBase }}</td>
+          <td class="px-4 py-2 text-right tabular-nums">{{ emissions.totalChange }}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+
+  <!-- Targets with progress bars -->
+  <section class="mt-10 break-inside-avoid">
+    <h2 class="text-lg font-bold text-slate-900">2. Targets &amp; Progress</h2>
+    <div class="mt-4 space-y-3">
+      {{#each targets}}
+      <div class="break-inside-avoid rounded-lg border border-slate-200 p-4">
+        <div class="flex items-baseline justify-between">
+          <p class="font-medium">{{ name }}</p>
+          <p class="text-sm text-slate-500">{{ status }} · target {{ dueYear }}</p>
+        </div>
+        <progress class="mt-2" value="{{ progress }}" max="100"></progress>
+        <p class="mt-1 text-xs text-slate-500">{{ progress }}% complete — {{ detail }}</p>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <!-- Nested loop: material topics grouped by pillar -->
+  <section class="mt-10">
+    <h2 class="text-lg font-bold text-slate-900">3. Material Topics</h2>
+    {{#each pillars}}
+    <div class="mt-4 break-inside-avoid rounded-lg bg-slate-50 p-4">
+      <h3 class="text-sm font-bold uppercase tracking-wide text-emerald-700">{{ name }}</h3>
+      <table class="mt-2 w-full text-left text-sm">
+        <thead>
+          <tr class="border-b border-slate-300 text-xs uppercase tracking-wide text-slate-400">
+            <th class="py-1 font-semibold">Topic</th>
+            <th class="py-1 font-semibold">Indicator</th>
+            <th class="py-1 text-right font-semibold">Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each topics}}
+          <tr class="border-b border-slate-200 last:border-0">
+            <td class="py-1 pr-4">{{ topic }}</td>
+            <td class="py-1 pr-4 text-slate-500">{{ indicator }}</td>
+            <td class="py-1 text-right tabular-nums font-medium">{{ result }}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    {{/each}}
+  </section>
+
+  <!-- Forced new page -->
+  <section class="mt-10 break-before-page">
+    <h2 class="text-lg font-bold text-slate-900">4. Assurance &amp; Notes</h2>
+    <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ assurance.statement }}</p>
+    <div class="mt-4 grid grid-cols-2 gap-4">
+      {{#each assurance.notes}}
+      <div class="break-inside-avoid rounded border-l-4 border-emerald-400 bg-emerald-50 p-3">
+        <p class="text-xs font-semibold uppercase tracking-wide text-emerald-700">{{ label }}</p>
+        <p class="mt-1 text-sm text-slate-700">{{ text }}</p>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <footer class="mt-12 border-t border-slate-200 pt-4 text-center text-xs text-slate-400">
+    {{ company.name }} · {{ report.title }} · {{ report.period }} · page generated {{ report.issuedAt }}
+  </footer>
+</div>
