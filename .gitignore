@@ -1,0 +1,4 @@
+node_modules/
+public/tailwind.css
+.env
+*.pdf
