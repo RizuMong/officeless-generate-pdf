@@ -8,8 +8,10 @@
     </div>
     <div class="text-right text-xs text-slate-500">
       <p><span class="rounded bg-slate-100 px-2 py-1 font-semibold uppercase tracking-wide text-slate-700">{{ status }}</span></p>
+      {{#unless status == DRAFT}}
       <p class="mt-2">Submitted by {{ submitted_by }}</p>
       <p>Submitted at {{ submitted_at }}</p>
+      {{/unless}}
     </div>
   </header>
 
@@ -54,6 +56,6 @@
   </section>
 
   <footer class="mt-12 border-t border-slate-200 pt-4 text-center text-xs text-slate-400">
-    {{ entity }} · Action Plan {{ period }} · {{ status }} · submitted {{ submitted_at }}
+    {{ entity }} · Action Plan {{ period }} · {{ status }}{{#unless status == DRAFT}} · submitted {{ submitted_at }}{{/unless}}
   </footer>
 </div>

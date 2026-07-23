@@ -32,25 +32,40 @@ const substitute = (tpl, ctx, root) =>
     return v == null ? "" : escapeHtml(stripTags(String(v))); // escape is the real guard
   });
 
-// {{#each rows}}…{{/each}}, nesting allowed. Each slice is substituted exactly
-// once, so a value that happens to contain "{{ x }}" is never re-expanded.
-function render(tpl, ctx, root) {
-  const open = /\{\{#each\s+([\w.]+)\s*\}\}/.exec(tpl);
-  if (!open) return substitute(tpl, ctx, root);
+// Blocks: {{#each rows}}…{{/each}}, {{#if x}}…{{/if}}, {{#unless x}}…{{/unless}},
+// the last two also as "{{#if x == LITERAL}}" / "!=". Nesting allowed. Each slice
+// is substituted exactly once, so a value containing "{{ x }}" is never re-expanded.
+const BLOCK = /\{\{#(each|if|unless)\s+([\w.]+)(?:\s*(==|!=)\s*([^}]*?))?\s*\}\}/;
+const BLOCK_TOKENS = /\{\{#(?:each|if|unless)\s+[^{}]*\}\}|\{\{\/(?:each|if|unless)\}\}/g;
 
-  const bodyStart = open.index + open[0].length;
-  const tokens = /\{\{#each\s+[\w.]+\s*\}\}|\{\{\/each\}\}/g;
-  tokens.lastIndex = bodyStart;
+function render(tpl, ctx, root) {
+  const open = BLOCK.exec(tpl);
+  if (!open) return substitute(tpl, ctx, root);
+  const [tag, kind, key, op, literal] = open;
+
+  const bodyStart = open.index + tag.length;
+  BLOCK_TOKENS.lastIndex = bodyStart;
   let depth = 1;
   let close;
-  while (depth > 0 && (close = tokens.exec(tpl))) depth += close[0] === "{{/each}}" ? -1 : 1;
-  if (depth > 0) throw new Error(`unclosed {{#each ${open[1]}}}`);
+  while (depth > 0 && (close = BLOCK_TOKENS.exec(tpl))) depth += close[0][2] === "/" ? -1 : 1;
+  if (depth > 0) throw new Error(`unclosed {{#${kind} ${key}}}`);
 
-  const list = get(ctx, open[1]) ?? get(root, open[1]);
+  const val = get(ctx, key) ?? get(root, key);
   const body = tpl.slice(bodyStart, close.index);
+
+  let inner;
+  if (kind === "each") {
+    inner = Array.isArray(val) ? val.map((item) => render(body, item, root)).join("") : "";
+  } else {
+    const match = op
+      ? (String(val) === String(literal).trim()) === (op === "==")
+      : Boolean(val);
+    inner = (kind === "if") === match ? render(body, ctx, root) : "";
+  }
+
   return (
     substitute(tpl.slice(0, open.index), ctx, root) +
-    (Array.isArray(list) ? list.map((item) => render(body, item, root)).join("") : "") +
+    inner +
     render(tpl.slice(close.index + close[0].length), ctx, root)
   );
 }

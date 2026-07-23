@@ -24,6 +24,17 @@ assert.equal(
 assert.equal(interpolate("x{{#each nope}}{{ v }}{{/each}}y", {}), "xy");
 assert.throws(() => interpolate("{{#each a}}", { a: [] }), /unclosed/);
 
+// {{#if}} / {{#unless}} — truthiness and literal compare
+assert.equal(interpolate("a{{#if v}}b{{/if}}c", { v: "x" }), "abc");
+assert.equal(interpolate("a{{#if v}}b{{/if}}c", {}), "ac");
+assert.equal(interpolate("{{#unless s == DRAFT}}by {{ u }}{{/unless}}", { s: "DRAFT", u: "me" }), "");
+assert.equal(interpolate("{{#unless s == DRAFT}}by {{ u }}{{/unless}}", { s: "SUBMITTED", u: "me" }), "by me");
+assert.equal(interpolate("{{#if s != DRAFT}}x{{/if}}", { s: "DRAFT" }), "");
+assert.equal( // if inside each, outer-scope fallback
+  interpolate("{{#each r}}{{#if s}}{{ n }}{{/if}};{{/each}}", { s: 1, r: [{ n: 1 }, { n: 2 }] }),
+  "1;2;",
+);
+
 const html = await renderTemplate("invoice", {
   invoice: { number: "1042", date: "2026-07-22", total: "$1,250.00" },
   company: { name: "Acme Co", email: "billing@acme.co" },
