@@ -1,0 +1,33 @@
+{
+    "template": "submit-action-plan",
+    "upload": false,
+    "filename": "submit-action-plan.pdf",
+    "data": {
+        "period": 2026,
+        "entity": "Sintesa",
+        "submitted_at": "17 Juni 2025",
+        "submitted_by": "rizki.haddi@mekari.com",
+        "status": "DRAFT",
+        "action_plans": [
+            {
+                "adoption_status": "TAKE",
+                "key_business_action": "Membuat kebijakan Kesehatan dan Keselamatan Kerja (K3) untuk menciptakan lingkungan kerja yang sehat dan aman",
+                "detail_action_solution": "Pemutakhiran pedoman pelaksanaan  Kesehatan dan Keselamatan Kerja (K3)",
+                "impact": "Investment Impact",
+                "indicator_id": {
+                    "id": "oPuO7i5lgrZv",
+                    "name": "P1"
+                },
+                "sdg_id": {
+                    "id": "kAehVqfKhTjJ",
+                    "name": "SDG 1"
+                },
+                "pillar_id": {
+                    "id": "4tSZIxTO6lzE",
+                    "name": "Policies"
+                },
+                "sdg_ambition_esg_alignment": "SGG 2"
+            }
+        ]
+    }
+}
