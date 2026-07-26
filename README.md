@@ -88,7 +88,18 @@ curl -s -X POST localhost:3000/generate \
   -d @examples/sustainability.json
 ```
 
-No conditionals and no loop index — add them when a template actually needs one.
+`{{#if key}} … {{/if}}` and `{{#unless key}} … {{/unless}}` show the block on
+truthy / falsy values. Both also take a literal compare — `{{#if status == DRAFT}}`
+or `{{#unless status == DRAFT}}` (and `!=`). Keys resolve like everywhere else
+(item first, outer data fallback), and blocks nest with `{{#each}}`:
+
+```html
+{{#unless status == DRAFT}}
+  <p>Submitted by {{ submitted_by }} at {{ submitted_at }}</p>
+{{/unless}}
+```
+
+No loop index — add it when a template actually needs one.
 
 ## officeless config
 
