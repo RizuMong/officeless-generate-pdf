@@ -11,22 +11,24 @@
         "action_plans": [
             {
                 "adoption_status": "TAKE",
-                "key_business_action": "Membuat kebijakan Kesehatan dan Keselamatan Kerja (K3) untuk menciptakan lingkungan kerja yang sehat dan aman",
                 "detail_action_solution": "Pemutakhiran pedoman pelaksanaan  Kesehatan dan Keselamatan Kerja (K3)",
                 "impact": "Investment Impact",
                 "indicator_id": {
                     "id": "oPuO7i5lgrZv",
                     "name": "P1"
                 },
-                "sdg_id": {
-                    "id": "kAehVqfKhTjJ",
-                    "name": "SDG 1"
-                },
+                "key_business_action": "Membuat kebijakan Kesehatan dan Keselamatan Kerja (K3) untuk menciptakan lingkungan kerja yang sehat dan aman",
                 "pillar_id": {
                     "id": "4tSZIxTO6lzE",
                     "name": "Policies"
                 },
-                "sdg_ambition_esg_alignment": "SGG 2"
+                "sdg_ambition_esg_alignment": null,
+                "sdg_id": {
+                    "id": "kAehVqfKhTjJ",
+                    "name": "SDG 1"
+                },
+                "baseline": "BARU",
+                "target": "NEW"
             }
         ]
     }
