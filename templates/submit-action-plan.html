@@ -54,6 +54,9 @@
           class="font-semibold uppercase tracking-wide text-emerald-700">Impact</span> — {{ impact }}</p>
     </div>
     {{/each}}
+    {{#unless action_plans.length}}
+    <p class="mt-3 text-sm text-slate-500">Action plan not found.</p>
+    {{/unless}}
   </section>
 
   <footer class="fixed inset-x-0 bottom-0 border-t border-slate-200 pt-2 pb-4 text-center text-xs text-slate-400">
