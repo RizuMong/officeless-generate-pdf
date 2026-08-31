@@ -1,7 +1,7 @@
 // Self-check: node test.js  (pdf stage needs Chromium)
 import assert from "node:assert/strict";
 import http from "node:http";
-import { renderTemplate, interpolate } from "./src/template.js";
+import { renderTemplate, interpolate, orderActionPlans } from "./src/template.js";
 import { uploadToOfficeless } from "./src/officeless.js";
 
 // --- template ---
@@ -70,6 +70,17 @@ assert.equal(received.auth, "tok123");
 process.env.OFFICELESS_URL_PATH = "nope";
 await assert.rejects(uploadToOfficeless("x", "y.pdf"), /no URL at path "nope"/);
 srv.close();
+
+// --- action plan order: TAKE, KEEP, SKIP, unknown last ---
+assert.deepEqual(
+  orderActionPlans([
+    { adoption_status: "SKIP" },
+    { adoption_status: "???" },
+    { adoption_status: "KEEP" },
+    { adoption_status: "TAKE" },
+  ]).map((p) => p.adoption_status),
+  ["TAKE", "KEEP", "SKIP", "???"],
+);
 
 // --- pdf (needs Chromium) ---
 try {

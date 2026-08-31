@@ -72,8 +72,18 @@ function render(tpl, ctx, root) {
 
 export const interpolate = (tpl, data) => render(tpl, data, data);
 
+// Action plans always read TAKE, KEEP, then SKIP — unknown statuses fall in after.
+const STATUS_ORDER = { TAKE: 0, KEEP: 1, SKIP: 2 };
+export const orderActionPlans = (plans) =>
+  [...plans].sort(
+    (a, b) =>
+      (STATUS_ORDER[a.adoption_status] ?? 9) - (STATUS_ORDER[b.adoption_status] ?? 9),
+  );
+
 export async function renderTemplate(name, data = {}) {
   if (!/^[\w-]+$/.test(name)) throw new Error(`invalid template name: ${name}`);
+  if (Array.isArray(data.action_plans))
+    data = { ...data, action_plans: orderActionPlans(data.action_plans) };
   const tpl = await readFile(path.join(root, "templates", `${name}.html`), "utf8");
   return `<!doctype html>
 <html><head><meta charset="utf-8"><style>${await css()}</style></head>

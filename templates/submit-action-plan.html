@@ -46,14 +46,14 @@
           <span class="font-medium text-slate-400">Baseline</span>
           <span class="ml-1 font-medium text-slate-700">{{ baseline }}</span>
         </div>
-        <div class="rounded border border-emerald-200 bg-emerald-50 px-2 py-1.5">
-          <span class="font-medium text-emerald-600">Target</span>
-          <span class="ml-1 font-medium text-emerald-800">{{ target }}</span>
+        <div class="rounded border px-2 py-1.5 {{#if adoption_status == SKIP}}border-red-200 bg-red-100{{/if}}{{#unless adoption_status == SKIP}}border-emerald-200 bg-emerald-50{{/unless}}">
+          <span class="font-medium {{#if adoption_status == SKIP}}text-red-600{{/if}}{{#unless adoption_status == SKIP}}text-emerald-600{{/unless}}">Target</span>
+          <span class="ml-1 font-medium {{#if adoption_status == SKIP}}text-red-800{{/if}}{{#unless adoption_status == SKIP}}text-emerald-800{{/unless}}">{{ target }}</span>
         </div>
       </div>
 
       <p class="mt-2 text-xs leading-snug text-slate-600"><span
-          class="font-semibold uppercase tracking-wide text-emerald-700">Impact</span> — {{ impact }}</p>
+          class="font-semibold uppercase tracking-wide {{#if adoption_status == SKIP}}text-red-700{{/if}}{{#unless adoption_status == SKIP}}text-emerald-700{{/unless}}">Impact</span> — {{ impact }}</p>
     </div>
     {{/each}}
     {{#unless action_plans.length}}
