@@ -142,3 +142,17 @@ node test.js
 Covers interpolation, CSS inlining, the officeless upload against a mock server
 (fields, Bearer header, URL extraction, missing-path error), and a real PDF
 render if Chromium is available.
+
+
+## GRI quantitative dashboard
+
+`template: "gri-quantitative-dashboard"` is a code template (`templates/gri-quantitative-dashboard.js`,
+exports `render(data)` and `pdfOptions(data)`): A4 landscape, inline SVG charts, no remote assets,
+footer with "Page x of y". Any `templates/<name>.js` is picked over `<name>.html`.
+
+Payload: `examples/gri-quantitative-dashboard.json`. Edge cases: `examples/gri-edge-cases/`
+(regenerate with `node scripts/gen-gri-edge-cases.mjs`). Render all to `out/*.pdf`:
+
+```bash
+npm run render:gri
+```

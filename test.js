@@ -1,7 +1,7 @@
 // Self-check: node test.js  (pdf stage needs Chromium)
 import assert from "node:assert/strict";
 import http from "node:http";
-import { renderTemplate, interpolate, orderActionPlans } from "./src/template.js";
+import { renderTemplate, pdfOptionsFor, interpolate, orderActionPlans } from "./src/template.js";
 import { uploadToOfficeless } from "./src/officeless.js";
 
 // --- template ---
@@ -44,6 +44,20 @@ const html = await renderTemplate("invoice", {
 assert.match(html, /text-indigo-600/);
 assert.match(html, /Jane Doe/);
 assert.ok(!/\{\{/.test(html), "unreplaced placeholder left in output");
+
+// --- gri-quantitative-dashboard ---
+const gri = await renderTemplate("gri-quantitative-dashboard", {
+  widgets: [
+    { type: "KPI", title: '<script>x</script>"', unit: "%", decimals: 1, groups: [{ value: 12.54 }] },
+    { type: "NOPE", title: "t" },
+  ],
+});
+assert.ok(!gri.includes("<script>x"));
+assert.match(gri, /&lt;script&gt;x&lt;\/script&gt;&quot;/);
+assert.match(gri, /12\.5<span class="kpi-u">%/);
+assert.match(gri, /Not supported/);
+assert.equal((await pdfOptionsFor("gri-quantitative-dashboard")).landscape, true);
+assert.deepEqual(await pdfOptionsFor("invoice"), {}); // other templates keep default pdf options
 
 // --- officeless (mock server) ---
 let received;

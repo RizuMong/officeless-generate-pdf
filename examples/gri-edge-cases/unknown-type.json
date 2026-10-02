@@ -1,0 +1,71 @@
+{
+  "template": "gri-quantitative-dashboard",
+  "filename": "edge.pdf",
+  "upload": false,
+  "data": {
+    "classification": "INTERNAL",
+    "report_title": "GRI Quantitative Report",
+    "generated_at": "2 Oct 2026, 14:05 WIB",
+    "generated_by": "Holding User",
+    "filter_summary": "All entities in scope",
+    "dashboard": {
+      "id": "d",
+      "name": "Edge case",
+      "description": "Line 1\nLine 2",
+      "version": 1,
+      "published_by": "Admin",
+      "published_at": "1 Oct 2026",
+      "scope_label": "All"
+    },
+    "widgets": [
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "u",
+        "order": 1,
+        "type": "GAUGE",
+        "width": "HALF",
+        "title": "Gauge",
+        "source": "x",
+        "groups": [
+          {
+            "key": "1",
+            "label": "a",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "k",
+        "order": 2,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "Still renders",
+        "source": "x",
+        "groups": [
+          {
+            "key": "1",
+            "label": "_",
+            "value": 7
+          }
+        ]
+      }
+    ]
+  }
+}

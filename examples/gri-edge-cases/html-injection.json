@@ -1,0 +1,123 @@
+{
+  "template": "gri-quantitative-dashboard",
+  "filename": "edge.pdf",
+  "upload": false,
+  "data": {
+    "classification": "INTERNAL",
+    "report_title": "GRI Quantitative Report",
+    "generated_at": "2 Oct 2026, 14:05 WIB",
+    "generated_by": "Holding User",
+    "filter_summary": "All entities in scope",
+    "dashboard": {
+      "id": "d",
+      "name": "Edge case",
+      "description": "Line 1\nLine 2",
+      "version": 1,
+      "published_by": "Admin",
+      "published_at": "1 Oct 2026",
+      "scope_label": "All"
+    },
+    "widgets": [
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [
+          "<script>alert('n')</script>"
+        ],
+        "id": "x",
+        "order": 1,
+        "type": "BAR",
+        "width": "HALF",
+        "title": "<script>alert(1)</script> \"quoted\" & <img src=x onerror=alert(2)>",
+        "source": "<b>src</b>\" onmouseover=\"alert(3)",
+        "groups": [
+          {
+            "key": "1",
+            "label": "<script>alert('l')</script>",
+            "value": 5
+          },
+          {
+            "key": "2",
+            "label": "\"><svg onload=alert(4)>",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "status": "ok",
+        "unit": "<u>",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "y",
+        "order": 2,
+        "type": "DONUT",
+        "width": "HALF",
+        "title": "t",
+        "source": "s",
+        "groups": [
+          {
+            "key": "1",
+            "label": "</text><script>alert(5)</script>",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "status": "warning",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "z",
+        "order": 3,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "w",
+        "source": "s",
+        "messages": [
+          "<script>alert(6)</script>"
+        ],
+        "groups": []
+      },
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "u",
+        "order": 4,
+        "type": "<script>alert(7)</script>",
+        "width": "QUARTER",
+        "title": "t",
+        "source": "s",
+        "groups": [
+          {
+            "key": "1",
+            "label": "a",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  }
+}

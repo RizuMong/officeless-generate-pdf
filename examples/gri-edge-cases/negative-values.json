@@ -1,0 +1,191 @@
+{
+  "template": "gri-quantitative-dashboard",
+  "filename": "edge.pdf",
+  "upload": false,
+  "data": {
+    "classification": "INTERNAL",
+    "report_title": "GRI Quantitative Report",
+    "generated_at": "2 Oct 2026, 14:05 WIB",
+    "generated_by": "Holding User",
+    "filter_summary": "All entities in scope",
+    "dashboard": {
+      "id": "d",
+      "name": "Edge case",
+      "description": "Line 1\nLine 2",
+      "version": 1,
+      "published_by": "Admin",
+      "published_at": "1 Oct 2026",
+      "scope_label": "All"
+    },
+    "widgets": [
+      {
+        "status": "ok",
+        "unit": "%",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "k",
+        "order": 1,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "Net change",
+        "source": "x",
+        "groups": [
+          {
+            "key": "1",
+            "label": "_",
+            "value": -12.54
+          }
+        ],
+        "delta": {
+          "period": 2024,
+          "pct": 0
+        },
+        "target": {
+          "value": 0,
+          "direction": "HIGHER_IS_BETTER"
+        }
+      },
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "b",
+        "order": 2,
+        "type": "BAR",
+        "width": "HALF",
+        "title": "Variance",
+        "source": "x",
+        "groups": [
+          {
+            "key": "1",
+            "label": "A",
+            "value": -50
+          },
+          {
+            "key": "2",
+            "label": "B",
+            "value": 100
+          },
+          {
+            "key": "3",
+            "label": "C",
+            "value": -25.55
+          }
+        ]
+      },
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": null,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "t",
+        "order": 3,
+        "type": "TREND",
+        "width": "HALF",
+        "title": "Net trend",
+        "source": "x",
+        "groups": [
+          {
+            "key": "1",
+            "label": "2023",
+            "value": -5
+          },
+          {
+            "key": "2",
+            "label": "2024",
+            "value": 3
+          },
+          {
+            "key": "3",
+            "label": "2025",
+            "value": -1.2
+          }
+        ],
+        "target": {
+          "value": 0,
+          "direction": "HIGHER_IS_BETTER"
+        }
+      },
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "p",
+        "order": 4,
+        "type": "PIE",
+        "width": "HALF",
+        "title": "Pie with negative",
+        "source": "x",
+        "groups": [
+          {
+            "key": "1",
+            "label": "Up",
+            "value": 60
+          },
+          {
+            "key": "2",
+            "label": "Down",
+            "value": -20
+          },
+          {
+            "key": "3",
+            "label": "Missing",
+            "value": null
+          }
+        ]
+      },
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "tb",
+        "order": 5,
+        "type": "TABLE",
+        "width": "HALF",
+        "group_by": "PERIOD",
+        "title": "Table",
+        "source": "x",
+        "groups": [
+          {
+            "key": "1",
+            "label": "2024",
+            "value": -1500.5
+          },
+          {
+            "key": "2",
+            "label": "2025",
+            "value": null
+          }
+        ]
+      }
+    ]
+  }
+}

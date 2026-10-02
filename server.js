@@ -1,5 +1,5 @@
 import express from "express";
-import { renderTemplate } from "./src/template.js";
+import { renderTemplate, pdfOptionsFor } from "./src/template.js";
 import { htmlToPdf, closeBrowser } from "./src/pdf.js";
 import { uploadToOfficeless } from "./src/officeless.js";
 
@@ -24,7 +24,8 @@ app.post("/generate", async (req, res) => {
 
   const name = filename || `${template}-${Date.now()}.pdf`;
   try {
-    const pdf = await htmlToPdf(await renderTemplate(template, data));
+    const html = await renderTemplate(template, data);
+    const pdf = await htmlToPdf(html, await pdfOptionsFor(template, data));
     const base64 = Buffer.from(pdf).toString("base64");
     if (upload === false) return ok(res, "PDF generated", { filename: name, base64 });
     const url = await uploadToOfficeless(base64, name);

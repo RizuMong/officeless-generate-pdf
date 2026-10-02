@@ -1,0 +1,64 @@
+{
+  "template": "gri-quantitative-dashboard",
+  "upload": false,
+  "data": {
+    "widgets": [
+      {
+        "id": "a",
+        "type": "KPI",
+        "title": "Only title and type"
+      },
+      {
+        "id": "b",
+        "type": "BAR",
+        "title": "Groups without labels",
+        "groups": [
+          {
+            "value": 3
+          },
+          {
+            "label": "x"
+          },
+          null
+        ]
+      },
+      {
+        "id": "c",
+        "type": "TREND",
+        "title": "One point",
+        "groups": [
+          {
+            "label": "2025",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "type": "TABLE",
+        "status": "ok",
+        "groups": [
+          {
+            "label": "r",
+            "value": "12.345"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "type": "KPI",
+        "title": "Bad delta/target",
+        "groups": [
+          {
+            "value": "abc"
+          }
+        ],
+        "delta": "oops",
+        "target": [],
+        "coverage": {
+          "n": 1
+        }
+      }
+    ]
+  }
+}

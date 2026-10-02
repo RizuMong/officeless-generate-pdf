@@ -80,8 +80,25 @@ export const orderActionPlans = (plans) =>
       (STATUS_ORDER[a.adoption_status] ?? 9) - (STATUS_ORDER[b.adoption_status] ?? 9),
   );
 
-export async function renderTemplate(name, data = {}) {
+// A template may be code instead of HTML: templates/<name>.js exporting render(data) and
+// optionally pdfOptions(data). Only a missing file falls through to the .html path.
+async function codeTemplate(name) {
   if (!/^[\w-]+$/.test(name)) throw new Error(`invalid template name: ${name}`);
+  try {
+    return await import(`../templates/${name}.js`);
+  } catch (err) {
+    if (err.code === "ERR_MODULE_NOT_FOUND") return null;
+    throw err;
+  }
+}
+
+export async function pdfOptionsFor(name, data = {}) {
+  return (await codeTemplate(name))?.pdfOptions?.(data) ?? {};
+}
+
+export async function renderTemplate(name, data = {}) {
+  const code = await codeTemplate(name);
+  if (code) return code.render(data);
   if (Array.isArray(data.action_plans))
     data = { ...data, action_plans: orderActionPlans(data.action_plans) };
   const tpl = await readFile(path.join(root, "templates", `${name}.html`), "utf8");

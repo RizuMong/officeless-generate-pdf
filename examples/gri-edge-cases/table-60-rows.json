@@ -1,0 +1,367 @@
+{
+  "template": "gri-quantitative-dashboard",
+  "filename": "edge.pdf",
+  "upload": false,
+  "data": {
+    "classification": "INTERNAL",
+    "report_title": "GRI Quantitative Report",
+    "generated_at": "2 Oct 2026, 14:05 WIB",
+    "generated_by": "Holding User",
+    "filter_summary": "All entities in scope",
+    "dashboard": {
+      "id": "d",
+      "name": "Edge case",
+      "description": "Line 1\nLine 2",
+      "version": 1,
+      "published_by": "Admin",
+      "published_at": "1 Oct 2026",
+      "scope_label": "All"
+    },
+    "widgets": [
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "k",
+        "order": 1,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "Rows",
+        "source": "x",
+        "groups": [
+          {
+            "key": "undefined",
+            "label": "_",
+            "value": 60
+          }
+        ]
+      },
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "t",
+        "order": 2,
+        "type": "TABLE",
+        "width": "FULL",
+        "group_by": "ENTITY",
+        "title": "Headcount per entity",
+        "source": "2-7",
+        "groups": [
+          {
+            "key": "0",
+            "label": "Entity 1",
+            "value": 1000
+          },
+          {
+            "key": "1",
+            "label": "Entity 2",
+            "value": 1037.5
+          },
+          {
+            "key": "2",
+            "label": "Entity 3",
+            "value": 1075
+          },
+          {
+            "key": "3",
+            "label": "Entity 4",
+            "value": 1112.5
+          },
+          {
+            "key": "4",
+            "label": "Entity 5",
+            "value": 1150
+          },
+          {
+            "key": "5",
+            "label": "Entity 6",
+            "value": 1187.5
+          },
+          {
+            "key": "6",
+            "label": "Entity 7",
+            "value": 1225
+          },
+          {
+            "key": "7",
+            "label": "Entity 8",
+            "value": 1262.5
+          },
+          {
+            "key": "8",
+            "label": "Entity 9",
+            "value": 1300
+          },
+          {
+            "key": "9",
+            "label": "Entity 10",
+            "value": 1337.5
+          },
+          {
+            "key": "10",
+            "label": "Entity 11",
+            "value": 1375
+          },
+          {
+            "key": "11",
+            "label": "Entity 12",
+            "value": 1412.5
+          },
+          {
+            "key": "12",
+            "label": "Entity 13",
+            "value": 1450
+          },
+          {
+            "key": "13",
+            "label": "Entity 14",
+            "value": 1487.5
+          },
+          {
+            "key": "14",
+            "label": "Entity 15",
+            "value": 1525
+          },
+          {
+            "key": "15",
+            "label": "Entity 16",
+            "value": 1562.5
+          },
+          {
+            "key": "16",
+            "label": "Entity 17",
+            "value": 1600
+          },
+          {
+            "key": "17",
+            "label": "Entity 18",
+            "value": 1637.5
+          },
+          {
+            "key": "18",
+            "label": "Entity 19",
+            "value": 1675
+          },
+          {
+            "key": "19",
+            "label": "Entity 20",
+            "value": 1712.5
+          },
+          {
+            "key": "20",
+            "label": "Entity 21",
+            "value": 1750
+          },
+          {
+            "key": "21",
+            "label": "Entity 22",
+            "value": 1787.5
+          },
+          {
+            "key": "22",
+            "label": "Entity 23",
+            "value": 1825
+          },
+          {
+            "key": "23",
+            "label": "Entity 24",
+            "value": 1862.5
+          },
+          {
+            "key": "24",
+            "label": "Entity 25",
+            "value": 1900
+          },
+          {
+            "key": "25",
+            "label": "Entity 26",
+            "value": 1937.5
+          },
+          {
+            "key": "26",
+            "label": "Entity 27",
+            "value": 1975
+          },
+          {
+            "key": "27",
+            "label": "Entity 28",
+            "value": 2012.5
+          },
+          {
+            "key": "28",
+            "label": "Entity 29",
+            "value": 2050
+          },
+          {
+            "key": "29",
+            "label": "Entity 30",
+            "value": 2087.5
+          },
+          {
+            "key": "30",
+            "label": "Entity 31",
+            "value": 2125
+          },
+          {
+            "key": "31",
+            "label": "Entity 32",
+            "value": 2162.5
+          },
+          {
+            "key": "32",
+            "label": "Entity 33",
+            "value": 2200
+          },
+          {
+            "key": "33",
+            "label": "Entity 34",
+            "value": 2237.5
+          },
+          {
+            "key": "34",
+            "label": "Entity 35",
+            "value": 2275
+          },
+          {
+            "key": "35",
+            "label": "Entity 36",
+            "value": 2312.5
+          },
+          {
+            "key": "36",
+            "label": "Entity 37",
+            "value": 2350
+          },
+          {
+            "key": "37",
+            "label": "Entity 38",
+            "value": 2387.5
+          },
+          {
+            "key": "38",
+            "label": "Entity 39",
+            "value": 2425
+          },
+          {
+            "key": "39",
+            "label": "Entity 40",
+            "value": 2462.5
+          },
+          {
+            "key": "40",
+            "label": "Entity 41",
+            "value": 2500
+          },
+          {
+            "key": "41",
+            "label": "Entity 42",
+            "value": 2537.5
+          },
+          {
+            "key": "42",
+            "label": "Entity 43",
+            "value": 2575
+          },
+          {
+            "key": "43",
+            "label": "Entity 44",
+            "value": 2612.5
+          },
+          {
+            "key": "44",
+            "label": "Entity 45",
+            "value": 2650
+          },
+          {
+            "key": "45",
+            "label": "Entity 46",
+            "value": 2687.5
+          },
+          {
+            "key": "46",
+            "label": "Entity 47",
+            "value": 2725
+          },
+          {
+            "key": "47",
+            "label": "Entity 48",
+            "value": 2762.5
+          },
+          {
+            "key": "48",
+            "label": "Entity 49",
+            "value": 2800
+          },
+          {
+            "key": "49",
+            "label": "Entity 50",
+            "value": 2837.5
+          },
+          {
+            "key": "50",
+            "label": "Entity 51",
+            "value": 2875
+          },
+          {
+            "key": "51",
+            "label": "Entity 52",
+            "value": 2912.5
+          },
+          {
+            "key": "52",
+            "label": "Entity 53",
+            "value": 2950
+          },
+          {
+            "key": "53",
+            "label": "Entity 54",
+            "value": 2987.5
+          },
+          {
+            "key": "54",
+            "label": "Entity 55",
+            "value": 3025
+          },
+          {
+            "key": "55",
+            "label": "Entity 56",
+            "value": 3062.5
+          },
+          {
+            "key": "56",
+            "label": "Entity 57",
+            "value": 3100
+          },
+          {
+            "key": "57",
+            "label": "Entity 58",
+            "value": 3137.5
+          },
+          {
+            "key": "58",
+            "label": "Entity 59",
+            "value": 3175
+          },
+          {
+            "key": "59",
+            "label": "Entity 60",
+            "value": 3212.5
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "template": "gri-quantitative-dashboard",
+  "filename": "edge.pdf",
+  "upload": false,
+  "data": {
+    "classification": "INTERNAL",
+    "report_title": "GRI Quantitative Report",
+    "generated_at": "2 Oct 2026, 14:05 WIB",
+    "generated_by": "Holding User",
+    "filter_summary": "All entities in scope",
+    "dashboard": {
+      "id": "d",
+      "name": "Edge case",
+      "description": "Line 1\nLine 2",
+      "version": 1,
+      "published_by": "Admin",
+      "published_at": "1 Oct 2026",
+      "scope_label": "All"
+    },
+    "widgets": [
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "d",
+        "order": 1,
+        "type": "DONUT",
+        "width": "HALF",
+        "title": "Zero donut",
+        "source": "x",
+        "groups": [
+          {
+            "key": "1",
+            "label": "A",
+            "value": 0
+          },
+          {
+            "key": "2",
+            "label": "B",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 1,
+          "m": 2
+        },
+        "notes": [],
+        "id": "p",
+        "order": 2,
+        "type": "PIE",
+        "width": "HALF",
+        "title": "Zero pie",
+        "source": "x",
+        "groups": [
+          {
+            "key": "1",
+            "label": "A",
+            "value": 0
+          }
+        ]
+      }
+    ]
+  }
+}
