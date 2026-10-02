@@ -223,16 +223,18 @@ function card(raw) {
 // ---------- page ----------
 
 const CSS = `
-@page{size:A4 landscape;margin:12mm}
+@page{size:A4 landscape;margin:8mm 8mm 10mm}
 *{box-sizing:border-box}
 html,body{margin:0;background:#fff;color:${C.text};font:11px/1.4 ${FONT};-webkit-print-color-adjust:exact;print-color-adjust:exact}
-h1{font-size:20px;margin:0}
-.dn{font-size:14px;font-weight:600;margin-top:2px}
-.desc{white-space:pre-line;color:${C.text2};margin-top:4px;max-width:70%}
-.hmeta{color:${C.text3};font-size:10px;margin-top:6px}
-.hmeta span+span::before{content:" · "}
-header{border-bottom:2px solid ${C.primary};padding-bottom:8px;margin-bottom:10px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+header{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;padding-bottom:6px;margin-bottom:8px;border-bottom:1px solid ${C.border};position:relative}
+header::after{content:"";position:absolute;left:0;bottom:-1px;width:48px;height:2px;background:${C.primary}}
+.eyebrow{font-size:8px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:${C.primary}}
+h1{font-size:17px;font-weight:700;letter-spacing:-.01em;margin:1px 0 0}
+.desc{white-space:pre-line;color:${C.text3};font-size:9px;line-height:1.35;margin-top:3px;max-width:480px}
+.hr{display:grid;grid-template-columns:auto auto;gap:2px 10px;margin:0;font-size:9px;text-align:left;flex:none;max-width:46%}
+.hr dt{color:${C.text3};font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;line-height:13px}
+.hr dd{margin:0;color:${C.text2};font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .card{border:1px solid ${C.border};border-radius:8px;padding:10px 12px;background:#fff;break-inside:avoid;display:flex;flex-direction:column;min-width:0;overflow-wrap:anywhere}
 .card.long{break-inside:auto}
 h3{font-size:12px;margin:0;break-after:avoid}
@@ -271,22 +273,18 @@ tr{break-inside:avoid}
 
 function header(data) {
   const d = obj(data.dashboard);
-  const ver = [
-    d.version != null ? `Version ${esc(d.version)}` : "",
-    d.published_by ? `Published by ${esc(d.published_by)}` : "",
-    d.published_at ? esc(d.published_at) : "",
-  ].filter(Boolean);
-  const spans = (xs) => xs.filter(Boolean).map((x) => `<span>${x}</span>`).join("");
-  return `<header><h1>${esc(data.report_title) || "GRI Quantitative Report"}</h1>
-    ${d.name ? `<div class="dn">${esc(d.name)}</div>` : ""}
-    ${d.description ? `<div class="desc">${esc(d.description)}</div>` : ""}
-    <div class="hmeta">${spans([
-      d.scope_label ? `Scope: ${esc(d.scope_label)}` : "",
-      data.filter_summary ? `Filters: ${esc(data.filter_summary)}` : "",
-      data.generated_at ? `Generated ${esc(data.generated_at)}` : "",
-      data.generated_by ? `by ${esc(data.generated_by)}` : "",
-    ])}</div>
-    ${ver.length ? `<div class="hmeta">${spans(ver)}</div>` : ""}</header>`;
+  const title = esc(data.report_title) || "GRI Quantitative Report";
+  const ver = [d.version != null ? `v${esc(d.version)}` : "", d.published_by ? esc(d.published_by) : "", d.published_at ? esc(d.published_at) : ""].filter(Boolean);
+  const gen = [data.generated_at, data.generated_by].filter(Boolean).map(esc);
+  const rows = [
+    ["Scope", d.scope_label ? esc(d.scope_label) : ""],
+    ["Filters", data.filter_summary ? esc(data.filter_summary) : ""],
+    ["Generated", gen.join(" · ")],
+    ["Published", ver.join(" · ")],
+  ].filter(([, v]) => v);
+  return `<header><div>${d.name ? `<div class="eyebrow">${title}</div><h1>${esc(d.name)}</h1>` : `<h1>${title}</h1>`}
+    ${d.description ? `<div class="desc">${esc(d.description)}</div>` : ""}</div>
+    ${rows.length ? `<dl class="hr">${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>` : ""}</header>`;
 }
 
 export function render(raw) {
@@ -307,10 +305,10 @@ export function pdfOptions(raw) {
   return {
     format: "A4",
     landscape: true,
-    margin: { top: "12mm", right: "12mm", bottom: "12mm", left: "12mm" },
+    margin: { top: "8mm", right: "8mm", bottom: "10mm", left: "8mm" },
     displayHeaderFooter: true,
     headerTemplate: "<div></div>",
-    footerTemplate: `<div style="${s};width:100%;padding:0 12mm;display:flex;justify-content:space-between">
+    footerTemplate: `<div style="${s};width:100%;padding:0 8mm;display:flex;justify-content:space-between">
       <span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>
       <span>${cls}</span><span>${esc(data.generated_at)}</span></div>`,
   };

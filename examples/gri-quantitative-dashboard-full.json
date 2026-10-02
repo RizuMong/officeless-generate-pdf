@@ -1,0 +1,1243 @@
+{
+  "template": "gri-quantitative-dashboard",
+  "filename": "gri-quantitative-dashboard-full.pdf",
+  "upload": false,
+  "data": {
+    "classification": "INTERNAL",
+    "report_title": "GRI Quantitative Report",
+    "generated_at": "2 Oct 2026, 14:05 WIB",
+    "generated_by": "Holding User",
+    "filter_summary": "All entities in scope · Latest year per widget",
+    "dashboard": {
+      "id": "dash_002",
+      "name": "Group Sustainability Overview",
+      "description": "Energy, emissions, water, waste and workforce KPIs.\nOnly approved submissions are counted.",
+      "version": 5,
+      "published_by": "Admin User",
+      "published_at": "28 Sep 2026",
+      "scope_label": "All entities"
+    },
+    "widgets": [
+      {
+        "id": "w1",
+        "order": 1,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "Total energy consumption",
+        "source": "302-1 Actual",
+        "status": "ok",
+        "unit": "GJ",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "groups": [
+          {
+            "key": "_",
+            "label": "_",
+            "value": 125430
+          }
+        ],
+        "delta": {
+          "period": 2024,
+          "pct": -4.2
+        },
+        "target": {
+          "value": 130000,
+          "direction": "LOWER_IS_BETTER"
+        }
+      },
+      {
+        "id": "w2",
+        "order": 2,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "Renewable energy share",
+        "source": "302-1 Renewable",
+        "status": "ok",
+        "unit": "%",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "groups": [
+          {
+            "key": "_",
+            "label": "_",
+            "value": 23.9
+          }
+        ],
+        "delta": {
+          "period": 2024,
+          "pct": 3.1
+        },
+        "target": {
+          "value": 30,
+          "direction": "HIGHER_IS_BETTER"
+        }
+      },
+      {
+        "id": "w3",
+        "order": 3,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "Scope 1 emissions",
+        "source": "305-1 Total",
+        "status": "ok",
+        "unit": "tCO2e",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "groups": [
+          {
+            "key": "_",
+            "label": "_",
+            "value": 48210
+          }
+        ],
+        "delta": {
+          "period": 2024,
+          "pct": 1.8
+        },
+        "target": {
+          "value": 45000,
+          "direction": "LOWER_IS_BETTER"
+        }
+      },
+      {
+        "id": "w4",
+        "order": 4,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "Scope 2 emissions",
+        "source": "305-2 Location-based",
+        "status": "ok",
+        "unit": "tCO2e",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "groups": [
+          {
+            "key": "_",
+            "label": "_",
+            "value": 31875
+          }
+        ],
+        "delta": {
+          "period": 2024,
+          "pct": -2.4
+        }
+      },
+      {
+        "id": "w5",
+        "order": 5,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "Water withdrawal",
+        "source": "303-3 Volume",
+        "status": "ok",
+        "unit": "ML",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "groups": [
+          {
+            "key": "_",
+            "label": "_",
+            "value": 47.3
+          }
+        ],
+        "delta": {
+          "period": 2024,
+          "pct": -5
+        },
+        "target": {
+          "value": 50,
+          "direction": "LOWER_IS_BETTER"
+        }
+      },
+      {
+        "id": "w6",
+        "order": 6,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "Total waste generated",
+        "source": "306-3 Total",
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "groups": [
+          {
+            "key": "_",
+            "label": "_",
+            "value": 1230.5
+          }
+        ],
+        "delta": {
+          "period": 2024,
+          "pct": 6.3
+        },
+        "target": {
+          "value": 1100,
+          "direction": "LOWER_IS_BETTER"
+        }
+      },
+      {
+        "id": "w7",
+        "order": 7,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "Total employees",
+        "source": "2-7 Total",
+        "status": "ok",
+        "unit": "people",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "groups": [
+          {
+            "key": "_",
+            "label": "_",
+            "value": 3482
+          }
+        ],
+        "delta": {
+          "period": 2024,
+          "pct": 2
+        }
+      },
+      {
+        "id": "w8",
+        "order": 8,
+        "type": "KPI",
+        "width": "QUARTER",
+        "title": "Lost-time injury rate",
+        "source": "403-9 LTIR",
+        "status": "ok",
+        "unit": "per 1M hrs",
+        "decimals": 2,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "groups": [
+          {
+            "key": "_",
+            "label": "_",
+            "value": 0.42
+          }
+        ],
+        "delta": {
+          "period": 2024,
+          "pct": -12.5
+        },
+        "target": {
+          "value": 0.5,
+          "direction": "LOWER_IS_BETTER"
+        }
+      },
+      {
+        "id": "w9",
+        "order": 9,
+        "type": "RANKING",
+        "width": "HALF",
+        "title": "Energy consumption by entity",
+        "source": "302-1 Actual",
+        "status": "ok",
+        "unit": "GJ",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ENTITY",
+        "groups": [
+          {
+            "key": "pt_mekari_nusantara",
+            "label": "PT Mekari Nusantara",
+            "value": 48200
+          },
+          {
+            "key": "pt_mekari_energi",
+            "label": "PT Mekari Energi",
+            "value": 31000
+          },
+          {
+            "key": "pt_mekari_logistik",
+            "label": "PT Mekari Logistik",
+            "value": 19800
+          },
+          {
+            "key": "pt_mekari_manufaktur",
+            "label": "PT Mekari Manufaktur",
+            "value": 14230
+          },
+          {
+            "key": "pt_mekari_retail",
+            "label": "PT Mekari Retail",
+            "value": 8100
+          },
+          {
+            "key": "pt_mekari_agro",
+            "label": "PT Mekari Agro",
+            "value": 4100
+          }
+        ]
+      },
+      {
+        "id": "w10",
+        "order": 10,
+        "type": "RANKING",
+        "width": "HALF",
+        "title": "Waste generated by entity",
+        "source": "306-3 Total",
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ENTITY",
+        "groups": [
+          {
+            "key": "pt_mekari_nusantara",
+            "label": "PT Mekari Nusantara",
+            "value": 420.5
+          },
+          {
+            "key": "pt_mekari_energi",
+            "label": "PT Mekari Energi",
+            "value": 310
+          },
+          {
+            "key": "pt_mekari_logistik",
+            "label": "PT Mekari Logistik",
+            "value": 205.2
+          },
+          {
+            "key": "pt_mekari_manufaktur",
+            "label": "PT Mekari Manufaktur",
+            "value": 150.8
+          },
+          {
+            "key": "pt_mekari_retail",
+            "label": "PT Mekari Retail",
+            "value": 98
+          },
+          {
+            "key": "pt_mekari_agro",
+            "label": "PT Mekari Agro",
+            "value": 46
+          }
+        ]
+      },
+      {
+        "id": "w11",
+        "order": 11,
+        "type": "TREND",
+        "width": "HALF",
+        "title": "Energy consumption trend",
+        "source": "302-1 Actual",
+        "status": "ok",
+        "unit": "GJ",
+        "decimals": 0,
+        "period": null,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "PERIOD",
+        "groups": [
+          {
+            "key": "2021",
+            "label": "2021",
+            "value": 142000
+          },
+          {
+            "key": "2022",
+            "label": "2022",
+            "value": 138500
+          },
+          {
+            "key": "2023",
+            "label": "2023",
+            "value": 131000
+          },
+          {
+            "key": "2024",
+            "label": "2024",
+            "value": 130900
+          },
+          {
+            "key": "2025",
+            "label": "2025",
+            "value": 125430
+          }
+        ],
+        "target": {
+          "value": 130000,
+          "direction": "LOWER_IS_BETTER"
+        }
+      },
+      {
+        "id": "w12",
+        "order": 12,
+        "type": "TREND",
+        "width": "HALF",
+        "title": "Water withdrawal trend",
+        "source": "303-3 Volume",
+        "status": "ok",
+        "unit": "ML",
+        "decimals": 1,
+        "period": null,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [
+          "Simple average across entities, not weighted"
+        ],
+        "group_by": "PERIOD",
+        "groups": [
+          {
+            "key": "2021",
+            "label": "2021",
+            "value": 58.2
+          },
+          {
+            "key": "2022",
+            "label": "2022",
+            "value": 55
+          },
+          {
+            "key": "2023",
+            "label": "2023",
+            "value": 52.1
+          },
+          {
+            "key": "2024",
+            "label": "2024",
+            "value": 49.8
+          },
+          {
+            "key": "2025",
+            "label": "2025",
+            "value": 47.3
+          }
+        ]
+      },
+      {
+        "id": "w13",
+        "order": 13,
+        "type": "TREND",
+        "width": "HALF",
+        "title": "Scope 1 + 2 emissions trend",
+        "source": "305-1 / 305-2",
+        "status": "ok",
+        "unit": "tCO2e",
+        "decimals": 0,
+        "period": null,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "PERIOD",
+        "groups": [
+          {
+            "key": "2021",
+            "label": "2021",
+            "value": 88000
+          },
+          {
+            "key": "2022",
+            "label": "2022",
+            "value": 85400
+          },
+          {
+            "key": "2023",
+            "label": "2023",
+            "value": 83000
+          },
+          {
+            "key": "2024",
+            "label": "2024",
+            "value": 81200
+          },
+          {
+            "key": "2025",
+            "label": "2025",
+            "value": 80085
+          }
+        ]
+      },
+      {
+        "id": "w14",
+        "order": 14,
+        "type": "TREND",
+        "width": "HALF",
+        "title": "Renewable share trend",
+        "source": "302-1 Renewable",
+        "status": "ok",
+        "unit": "%",
+        "decimals": 1,
+        "period": null,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "PERIOD",
+        "groups": [
+          {
+            "key": "2021",
+            "label": "2021",
+            "value": 12.4
+          },
+          {
+            "key": "2022",
+            "label": "2022",
+            "value": 15
+          },
+          {
+            "key": "2023",
+            "label": "2023",
+            "value": 18.3
+          },
+          {
+            "key": "2024",
+            "label": "2024",
+            "value": 21
+          },
+          {
+            "key": "2025",
+            "label": "2025",
+            "value": 23.9
+          }
+        ],
+        "target": {
+          "value": 30,
+          "direction": "HIGHER_IS_BETTER"
+        }
+      },
+      {
+        "id": "w15",
+        "order": 15,
+        "type": "DONUT",
+        "width": "HALF",
+        "title": "Energy mix",
+        "source": "302-1 Actual",
+        "status": "ok",
+        "unit": "GJ",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ROW",
+        "groups": [
+          {
+            "key": "renewable",
+            "label": "Renewable",
+            "value": 30000
+          },
+          {
+            "key": "non_renewable",
+            "label": "Non-renewable",
+            "value": 95430
+          }
+        ]
+      },
+      {
+        "id": "w16",
+        "order": 16,
+        "type": "DONUT",
+        "width": "HALF",
+        "title": "Waste by disposal method",
+        "source": "306-4 / 306-5",
+        "status": "ok",
+        "unit": "t",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ROW",
+        "groups": [
+          {
+            "key": "recycled",
+            "label": "Recycled",
+            "value": 640.2
+          },
+          {
+            "key": "composted",
+            "label": "Composted",
+            "value": 210
+          },
+          {
+            "key": "incinerated",
+            "label": "Incinerated",
+            "value": 180.3
+          },
+          {
+            "key": "landfill",
+            "label": "Landfill",
+            "value": 200
+          }
+        ]
+      },
+      {
+        "id": "w17",
+        "order": 17,
+        "type": "PIE",
+        "width": "HALF",
+        "title": "Employees by gender",
+        "source": "405-1 Total",
+        "status": "ok",
+        "unit": "people",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ROW",
+        "groups": [
+          {
+            "key": "female",
+            "label": "Female",
+            "value": 1480
+          },
+          {
+            "key": "male",
+            "label": "Male",
+            "value": 2002
+          }
+        ]
+      },
+      {
+        "id": "w18",
+        "order": 18,
+        "type": "PIE",
+        "width": "HALF",
+        "title": "Employees by employment type",
+        "source": "2-7 Type",
+        "status": "ok",
+        "unit": "people",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ROW",
+        "groups": [
+          {
+            "key": "permanent",
+            "label": "Permanent",
+            "value": 2790
+          },
+          {
+            "key": "contract",
+            "label": "Contract",
+            "value": 520
+          },
+          {
+            "key": "part_time",
+            "label": "Part-time",
+            "value": 172
+          }
+        ]
+      },
+      {
+        "id": "w19",
+        "order": 19,
+        "type": "BAR",
+        "width": "HALF",
+        "title": "Emissions by scope",
+        "source": "305-1 / 305-2 / 305-3",
+        "status": "ok",
+        "unit": "tCO2e",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ROW",
+        "groups": [
+          {
+            "key": "scope_1",
+            "label": "Scope 1",
+            "value": 48210
+          },
+          {
+            "key": "scope_2",
+            "label": "Scope 2",
+            "value": 31875
+          },
+          {
+            "key": "scope_3",
+            "label": "Scope 3",
+            "value": 112400
+          }
+        ]
+      },
+      {
+        "id": "w20",
+        "order": 20,
+        "type": "BAR",
+        "width": "HALF",
+        "title": "Training hours per employee by level",
+        "source": "404-1",
+        "status": "ok",
+        "unit": "hours",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ROW",
+        "groups": [
+          {
+            "key": "executive",
+            "label": "Executive",
+            "value": 18.5
+          },
+          {
+            "key": "manager",
+            "label": "Manager",
+            "value": 24.2
+          },
+          {
+            "key": "staff",
+            "label": "Staff",
+            "value": 31.8
+          },
+          {
+            "key": "operator",
+            "label": "Operator",
+            "value": 12.4
+          }
+        ]
+      },
+      {
+        "id": "w21",
+        "order": 21,
+        "type": "BAR",
+        "width": "HALF",
+        "title": "Net change in headcount",
+        "source": "401-1",
+        "status": "ok",
+        "unit": "people",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ENTITY",
+        "groups": [
+          {
+            "key": "pt_mekari_nusantara",
+            "label": "PT Mekari Nusantara",
+            "value": 45
+          },
+          {
+            "key": "pt_mekari_energi",
+            "label": "PT Mekari Energi",
+            "value": -12
+          },
+          {
+            "key": "pt_mekari_logistik",
+            "label": "PT Mekari Logistik",
+            "value": 20
+          },
+          {
+            "key": "pt_mekari_retail",
+            "label": "PT Mekari Retail",
+            "value": -30
+          }
+        ]
+      },
+      {
+        "id": "w22",
+        "order": 22,
+        "type": "RANKING",
+        "width": "HALF",
+        "title": "Water intensity by entity",
+        "source": "303-5",
+        "status": "ok",
+        "unit": "ML/mUSD",
+        "decimals": 2,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ENTITY",
+        "groups": [
+          {
+            "key": "pt_mekari_nusantara",
+            "label": "PT Mekari Nusantara",
+            "value": 1.82
+          },
+          {
+            "key": "pt_mekari_energi",
+            "label": "PT Mekari Energi",
+            "value": 1.4
+          },
+          {
+            "key": "pt_mekari_logistik",
+            "label": "PT Mekari Logistik",
+            "value": 1.1
+          },
+          {
+            "key": "pt_mekari_manufaktur",
+            "label": "PT Mekari Manufaktur",
+            "value": 0.95
+          },
+          {
+            "key": "pt_mekari_retail",
+            "label": "PT Mekari Retail",
+            "value": 0.6
+          },
+          {
+            "key": "pt_mekari_agro",
+            "label": "PT Mekari Agro",
+            "value": 0.31
+          }
+        ]
+      },
+      {
+        "id": "w23",
+        "order": 23,
+        "type": "TABLE",
+        "width": "FULL",
+        "title": "Energy consumption per entity",
+        "source": "302-1 Actual",
+        "status": "ok",
+        "unit": "GJ",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ENTITY",
+        "groups": [
+          {
+            "key": "pt_mekari_nusantara",
+            "label": "PT Mekari Nusantara",
+            "value": 48200
+          },
+          {
+            "key": "pt_mekari_energi",
+            "label": "PT Mekari Energi",
+            "value": 31000
+          },
+          {
+            "key": "pt_mekari_logistik",
+            "label": "PT Mekari Logistik",
+            "value": 19800
+          },
+          {
+            "key": "pt_mekari_manufaktur",
+            "label": "PT Mekari Manufaktur",
+            "value": 14230
+          },
+          {
+            "key": "pt_mekari_retail",
+            "label": "PT Mekari Retail",
+            "value": 8100
+          },
+          {
+            "key": "pt_mekari_agro",
+            "label": "PT Mekari Agro",
+            "value": 4100
+          }
+        ]
+      },
+      {
+        "id": "w24",
+        "order": 24,
+        "type": "TABLE",
+        "width": "FULL",
+        "title": "Headcount per year",
+        "source": "2-7 Total",
+        "status": "ok",
+        "unit": "people",
+        "decimals": 0,
+        "period": null,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "PERIOD",
+        "groups": [
+          {
+            "key": "2021",
+            "label": "2021",
+            "value": 2980
+          },
+          {
+            "key": "2022",
+            "label": "2022",
+            "value": 3105
+          },
+          {
+            "key": "2023",
+            "label": "2023",
+            "value": 3260
+          },
+          {
+            "key": "2024",
+            "label": "2024",
+            "value": 3413
+          },
+          {
+            "key": "2025",
+            "label": "2025",
+            "value": 3482
+          }
+        ]
+      },
+      {
+        "id": "w25",
+        "order": 25,
+        "type": "TABLE",
+        "width": "FULL",
+        "title": "Operational sites",
+        "source": "2-1 Sites",
+        "status": "ok",
+        "unit": "ha",
+        "decimals": 1,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ENTITY",
+        "groups": [
+          {
+            "key": "site_01_pt_mekari_nusantara",
+            "label": "Site 01 — PT Mekari Nusantara",
+            "value": 5
+          },
+          {
+            "key": "site_02_pt_mekari_energi",
+            "label": "Site 02 — PT Mekari Energi",
+            "value": 42.1
+          },
+          {
+            "key": "site_03_pt_mekari_logistik",
+            "label": "Site 03 — PT Mekari Logistik",
+            "value": 79.2
+          },
+          {
+            "key": "site_04_pt_mekari_manufaktur",
+            "label": "Site 04 — PT Mekari Manufaktur",
+            "value": 116.3
+          },
+          {
+            "key": "site_05_pt_mekari_retail",
+            "label": "Site 05 — PT Mekari Retail",
+            "value": 153.4
+          },
+          {
+            "key": "site_06_pt_mekari_agro",
+            "label": "Site 06 — PT Mekari Agro",
+            "value": 190.5
+          },
+          {
+            "key": "site_07_pt_mekari_nusantara",
+            "label": "Site 07 — PT Mekari Nusantara",
+            "value": 17.6
+          },
+          {
+            "key": "site_08_pt_mekari_energi",
+            "label": "Site 08 — PT Mekari Energi",
+            "value": 54.7
+          },
+          {
+            "key": "site_09_pt_mekari_logistik",
+            "label": "Site 09 — PT Mekari Logistik",
+            "value": 91.8
+          },
+          {
+            "key": "site_10_pt_mekari_manufaktur",
+            "label": "Site 10 — PT Mekari Manufaktur",
+            "value": 128.9
+          },
+          {
+            "key": "site_11_pt_mekari_retail",
+            "label": "Site 11 — PT Mekari Retail",
+            "value": 166
+          },
+          {
+            "key": "site_12_pt_mekari_agro",
+            "label": "Site 12 — PT Mekari Agro",
+            "value": 203.1
+          },
+          {
+            "key": "site_13_pt_mekari_nusantara",
+            "label": "Site 13 — PT Mekari Nusantara",
+            "value": 30.2
+          },
+          {
+            "key": "site_14_pt_mekari_energi",
+            "label": "Site 14 — PT Mekari Energi",
+            "value": 67.3
+          },
+          {
+            "key": "site_15_pt_mekari_logistik",
+            "label": "Site 15 — PT Mekari Logistik",
+            "value": 104.4
+          },
+          {
+            "key": "site_16_pt_mekari_manufaktur",
+            "label": "Site 16 — PT Mekari Manufaktur",
+            "value": 141.5
+          },
+          {
+            "key": "site_17_pt_mekari_retail",
+            "label": "Site 17 — PT Mekari Retail",
+            "value": 178.6
+          },
+          {
+            "key": "site_18_pt_mekari_agro",
+            "label": "Site 18 — PT Mekari Agro",
+            "value": 215.7
+          },
+          {
+            "key": "site_19_pt_mekari_nusantara",
+            "label": "Site 19 — PT Mekari Nusantara",
+            "value": 42.8
+          },
+          {
+            "key": "site_20_pt_mekari_energi",
+            "label": "Site 20 — PT Mekari Energi",
+            "value": 79.9
+          },
+          {
+            "key": "site_21_pt_mekari_logistik",
+            "label": "Site 21 — PT Mekari Logistik",
+            "value": 117
+          },
+          {
+            "key": "site_22_pt_mekari_manufaktur",
+            "label": "Site 22 — PT Mekari Manufaktur",
+            "value": 154.1
+          },
+          {
+            "key": "site_23_pt_mekari_retail",
+            "label": "Site 23 — PT Mekari Retail",
+            "value": 191.2
+          },
+          {
+            "key": "site_24_pt_mekari_agro",
+            "label": "Site 24 — PT Mekari Agro",
+            "value": 18.3
+          },
+          {
+            "key": "site_25_pt_mekari_nusantara",
+            "label": "Site 25 — PT Mekari Nusantara",
+            "value": 55.4
+          },
+          {
+            "key": "site_26_pt_mekari_energi",
+            "label": "Site 26 — PT Mekari Energi",
+            "value": 92.5
+          },
+          {
+            "key": "site_27_pt_mekari_logistik",
+            "label": "Site 27 — PT Mekari Logistik",
+            "value": 129.6
+          },
+          {
+            "key": "site_28_pt_mekari_manufaktur",
+            "label": "Site 28 — PT Mekari Manufaktur",
+            "value": 166.7
+          },
+          {
+            "key": "site_29_pt_mekari_retail",
+            "label": "Site 29 — PT Mekari Retail",
+            "value": 203.8
+          },
+          {
+            "key": "site_30_pt_mekari_agro",
+            "label": "Site 30 — PT Mekari Agro",
+            "value": 30.9
+          },
+          {
+            "key": "site_31_pt_mekari_nusantara",
+            "label": "Site 31 — PT Mekari Nusantara",
+            "value": 68
+          },
+          {
+            "key": "site_32_pt_mekari_energi",
+            "label": "Site 32 — PT Mekari Energi",
+            "value": 105.1
+          },
+          {
+            "key": "site_33_pt_mekari_logistik",
+            "label": "Site 33 — PT Mekari Logistik",
+            "value": 142.2
+          },
+          {
+            "key": "site_34_pt_mekari_manufaktur",
+            "label": "Site 34 — PT Mekari Manufaktur",
+            "value": 179.3
+          },
+          {
+            "key": "site_35_pt_mekari_retail",
+            "label": "Site 35 — PT Mekari Retail",
+            "value": 216.4
+          },
+          {
+            "key": "site_36_pt_mekari_agro",
+            "label": "Site 36 — PT Mekari Agro",
+            "value": 43.5
+          },
+          {
+            "key": "site_37_pt_mekari_nusantara",
+            "label": "Site 37 — PT Mekari Nusantara",
+            "value": 80.6
+          },
+          {
+            "key": "site_38_pt_mekari_energi",
+            "label": "Site 38 — PT Mekari Energi",
+            "value": 117.7
+          },
+          {
+            "key": "site_39_pt_mekari_logistik",
+            "label": "Site 39 — PT Mekari Logistik",
+            "value": 154.8
+          },
+          {
+            "key": "site_40_pt_mekari_manufaktur",
+            "label": "Site 40 — PT Mekari Manufaktur",
+            "value": 191.9
+          }
+        ]
+      },
+      {
+        "id": "w26",
+        "order": 26,
+        "type": "BAR",
+        "width": "HALF",
+        "title": "OHS incidents",
+        "source": "403-9 Count",
+        "status": "warning",
+        "unit": "",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ROW",
+        "messages": [
+          "Value: some selected rows were removed from MKI"
+        ],
+        "groups": []
+      },
+      {
+        "id": "w27",
+        "order": 27,
+        "type": "TABLE",
+        "width": "HALF",
+        "title": "Hazardous waste",
+        "source": "306-4",
+        "status": "empty",
+        "unit": "",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ENTITY",
+        "messages": [
+          "No approved data yet"
+        ],
+        "groups": []
+      },
+      {
+        "id": "w28",
+        "order": 28,
+        "type": "DONUT",
+        "width": "HALF",
+        "title": "Supplier screening",
+        "source": "308-1",
+        "status": "invalid",
+        "unit": "",
+        "decimals": 0,
+        "period": 2025,
+        "coverage": {
+          "n": 5,
+          "m": 6
+        },
+        "notes": [],
+        "group_by": "ROW",
+        "messages": [
+          "Missing denominator for 2 entities",
+          "Re-submit after review"
+        ],
+        "groups": []
+      }
+    ]
+  }
+}
